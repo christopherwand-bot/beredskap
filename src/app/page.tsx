@@ -67,7 +67,9 @@ export default async function HomePage() {
                 </Link>
               </div>
               {hero.coverImage ? (
-                <img src={hero.coverImage} alt={hero.title} className="hero-image" />
+                <div className="hero-media">
+                  <img src={hero.coverImage} alt={hero.title} className="hero-image" />
+                </div>
               ) : (
                 <div className="hero-placeholder">Beredskap • Krise • Direkte</div>
               )}

@@ -193,9 +193,9 @@ textarea {
 
 .hero-content {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
   gap: 1.25rem;
-  align-items: stretch;
+  align-items: start;
 }
 
 .hero-card h1,
@@ -218,8 +218,22 @@ textarea {
   object-fit: cover;
 }
 
+.hero-media {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 860px;
+  min-height: 420px;
+  overflow: hidden;
+  align-self: start;
+}
+
+.hero-media .hero-image {
+  display: block;
+}
+
 .hero-placeholder {
-  min-height: 300px;
+  min-height: 420px;
+  aspect-ratio: 4 / 5;
   background: linear-gradient(135deg, #ffe18d, #d91f26);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -389,6 +403,12 @@ textarea {
 
   .section-nav {
     display: none;
+  }
+
+  .hero-media,
+  .hero-placeholder {
+    min-height: 320px;
+    max-height: 520px;
   }
 }
 
