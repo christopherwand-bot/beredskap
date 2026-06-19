@@ -94,6 +94,7 @@ pnpm exec prisma db push
 ## Railway-notat
 
 Repoet er satt opp for Railway med [nixpacks.toml](/Users/christopherawand/Documents/Codex/2026-06-19-jeg-skal-lage-en-nettavis-der/nixpacks.toml), som tvinger Node 20 og en kompatibel `pnpm`-versjon under build.
+Ved oppstart i Railway kjøres `prisma db push` automatisk før appen starter, så dere trenger ikke kjøre databasekommandoer manuelt i Railway-konsollen.
 
 ## Anbefalt drift
 
