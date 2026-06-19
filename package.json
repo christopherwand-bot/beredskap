@@ -2,7 +2,10 @@
   "name": "beredskapsavisa",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@11.8.0",
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=20 <23"
+  },
   "scripts": {
     "setup": "pnpm install && prisma generate && prisma db push",
     "dev": "next dev",

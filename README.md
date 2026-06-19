@@ -91,6 +91,10 @@ pnpm exec prisma db push
 
 6. Deploy.
 
+## Railway-notat
+
+Repoet er satt opp for Railway med [nixpacks.toml](/Users/christopherawand/Documents/Codex/2026-06-19-jeg-skal-lage-en-nettavis-der/nixpacks.toml), som tvinger Node 20 og en kompatibel `pnpm`-versjon under build.
+
 ## Anbefalt drift
 
 - Bruk GitHub som kilde for all kode og endringer.
