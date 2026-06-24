@@ -8,4 +8,4 @@ cmds = ["corepack enable", "corepack prepare pnpm@9.15.9 --activate", "pnpm inst
 cmds = ["pnpm exec prisma generate", "pnpm run build"]
 
 [start]
-cmd = "sh -c 'mkdir -p \"${UPLOAD_DIR:-/data/uploads}\" && ./node_modules/.bin/prisma db push && ./node_modules/.bin/next start -p ${PORT:-3000}'"
+cmd = "sh -c 'mkdir -p \"${UPLOAD_DIR:-/data/uploads}\" && ./node_modules/.bin/prisma db push && node prisma/cleanup-test-articles.mjs && ./node_modules/.bin/next start -p ${PORT:-3000}'"
