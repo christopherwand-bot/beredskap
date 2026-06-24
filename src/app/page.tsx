@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AutoRefresh } from "@/components/auto-refresh";
 import { db } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
@@ -14,6 +15,30 @@ function formatDate(date: Date | null) {
   }).format(date);
 }
 
+function ArticlePreviewImage({
+  coverImage,
+  title,
+  compact = false
+}: {
+  coverImage: string | null;
+  title: string;
+  compact?: boolean;
+}) {
+  if (coverImage) {
+    return (
+      <div className={`card-media${compact ? " is-compact" : ""}`}>
+        <img src={coverImage} alt={title} className="card-image" />
+      </div>
+    );
+  }
+
+  return (
+    <div className={`card-media card-placeholder${compact ? " is-compact" : ""}`}>
+      <span>Beredskap</span>
+    </div>
+  );
+}
+
 export default async function HomePage() {
   const articles = await db.article.findMany({
     where: {
@@ -26,6 +51,7 @@ export default async function HomePage() {
 
   return (
     <main className="site-shell">
+      <AutoRefresh />
       <header className="topbar">
         <div className="topbar-inner">
           <Link href="/" className="brandmark">
@@ -83,6 +109,11 @@ export default async function HomePage() {
                 key={article.id}
                 className="mini-card"
               >
+                <ArticlePreviewImage
+                  coverImage={article.coverImage}
+                  title={article.title}
+                  compact
+                />
                 <p className="mini-category">{article.category}</p>
                 <h2>{article.title}</h2>
                 <p>{article.excerpt}</p>
@@ -106,6 +137,7 @@ export default async function HomePage() {
       <section className="news-grid">
         {rest.slice(hero ? 3 : 0).map((article) => (
           <Link href={`/nyheter/${article.slug}`} key={article.id} className="news-card">
+            <ArticlePreviewImage coverImage={article.coverImage} title={article.title} />
             <div className="meta-row">
               <span>{article.category}</span>
               <span>{formatDate(article.publishedAt)}</span>

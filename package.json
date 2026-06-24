@@ -14,8 +14,7 @@
     "lint": "next lint",
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
-    "db:seed": "node prisma/seed.mjs",
-    "db:cleanup:test": "node prisma/cleanup-test-articles.mjs"
+    "db:seed": "node prisma/seed.mjs"
   },
   "dependencies": {
     "@prisma/client": "^6.10.1",
