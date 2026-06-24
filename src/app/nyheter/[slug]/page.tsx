@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { AutoRefresh } from "@/components/auto-refresh";
 import { db } from "@/lib/db";
 import { renderArticleBody } from "@/lib/articles";
 
@@ -25,6 +26,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <main className="article-shell">
+      <AutoRefresh />
       <header className="topbar article-topbar">
         <div className="topbar-inner">
           <Link href="/" className="brandmark">
